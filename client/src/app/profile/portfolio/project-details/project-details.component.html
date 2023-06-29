@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content class="mat-typography mat-content">
+  <!-- <mat-slider thumbLabel (input)="onSlideChange($event)"></mat-slider> -->
+  <div class="photos-slider">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Left slide photo"
+      (click)="onLeft()"
+      fontIcon="chevron_left" *ngIf="data.images.length>1"
+    ></mat-icon>
+    <div class="image-container">
+      <img
+        src="assets/imgs/portfolio/{{ data.images[currentSlide] }}.{{
+          data.imgExt
+        }}"
+        alt=""
+        style="width: 500px"
+      />
+    </div>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Right slide photo"
+      (click)="onRight()"
+      fontIcon="chevron_right" *ngIf="data.images.length>1"
+    ></mat-icon>
+  </div>
+  <h3>{{ data.subTitle }}</h3>
+  <p>{{ data.description }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>

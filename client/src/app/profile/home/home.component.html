@@ -1,0 +1,34 @@
+<div class="main-section {{ navbarClass }}">
+  <mat-toolbar color="primary" class="custom-navbar">
+    <mat-toolbar-row>
+      <span class="logo"
+        (click)="scrollToSection('home')"
+        >Malvi</span
+      >
+      <span class="example-spacer"></span>
+      <span class="nav-icon show-menu-icon" (click)="drawer.toggle()"
+        ><mat-icon>menu</mat-icon></span
+      >
+      <div class="hide-menu-items">
+        <span
+          class="nav-icon"
+          *ngFor="let menu of menuList"
+          (click)="scrollToSection(menu.id)"
+          >{{ menu.name }}</span
+        >
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+      <h1 class="header-title">
+        <span class="up mt-b8">HI!</span>
+        <span class="down mt-b4">I am Malvi</span>
+      </h1>
+      <p class="header-subtitle mt-b10">WEB DEVELOPER</p>
+      <button mat-raised-button (click)="scrollToSection('portfolio')">Visit My Works</button>
+    </div>
+  </div>
+</div>

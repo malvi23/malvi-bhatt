@@ -1,0 +1,14 @@
+@import '../node_modules/@angular/material/core/theming/theming.scss';
+@import '../node_modules/@angular/material/core/typography/typography.scss';
+
+// Override the typography options
+$custom-typography: mat-typography-config(
+  $font-family: 'Poppins, sans-serif',
+);
+
+// Create a custom theme using the typography options
+$custom-theme: mat-light-theme($custom-typography);
+
+// Apply the theme to the whole application
+@include angular-material-theme($custom-theme);
+

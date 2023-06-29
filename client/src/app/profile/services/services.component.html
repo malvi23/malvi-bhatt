@@ -1,0 +1,26 @@
+<section class="section" id="service">
+  <div class="container">
+    <div class="text-center">
+      <!-- <p class="section-subtitle">What I Do ?</p> -->
+      <h6 class="section-title mb-6">Services</h6>
+    </div>
+    <div style="display: flex;justify-content: center;">
+      <mat-card class="service-card" *ngFor="let service of services">
+        <img
+          mat-card-image
+          [src]="service.imgUrl"
+          alt="Photo of a Shiba Inu"
+          style="width: 135px"
+        />
+        <mat-card-header>
+          <mat-card-title class="card-title">{{service.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p style="text-align: center;">
+            {{service.description}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

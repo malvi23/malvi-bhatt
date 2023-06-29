@@ -1,0 +1,24 @@
+.mat-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.photos-slider {
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    min-height: 500px;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.mat-icon {
+    font-size: 73px;
+    height: unset;
+    width: unset;
+    cursor: pointer;
+}

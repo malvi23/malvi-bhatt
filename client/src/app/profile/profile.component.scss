@@ -1,0 +1,224 @@
+@import '../../styles.scss';
+
+
+
+    .mat-drawer-content {
+        height: 600px !important;
+    }
+
+.profile-sidenav {
+    padding: 20px;
+    background-color: #575a8f;
+}
+
+.nav-icon {
+    margin: 0 14px;
+    font-size: medium;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-image: url(../../assets/imgs/background2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: -webkit-linear-gradient(bottom, #fff 0%, rgba(105, 90, 166, 0.35) 99%, rgba(105, 90, 166, 0.5) 100%);
+    background-image: linear-gradient(to top, #fff 0%, rgba(105, 90, 166, 0.35) 99%, rgba(105, 90, 166, 0.5) 100%);
+}
+
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: all, 0.3s;
+    transition: all, 0.3s;
+    font-family: 'Poppins', sans-serif;
+    background: transparent;
+    // margin-top: 15px;
+    padding: 15px 15px 0 15px;
+}
+
+.header .header-content {
+    margin-top: 20px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 550px;
+}
+
+.header .header-content .header-title .up {
+    font-size: calc(30px + (60 - 30) * ((100vw - 300px) / (1300 - 300)));
+    font-weight: 500;
+    color: #444;
+    // margin-bottom: 20px;
+    position: relative;
+    display: block;
+}
+
+.header .header-content .header-title .down {
+    font-size: calc(30px + (75 - 30) * ((100vw - 300px) / (1300 - 300)));
+    // margin-bottom: 0;
+    position: relative;
+    display: block;
+}
+
+.header .header-content .header-subtitle {
+    font-size: calc(10px + (22 - 10) * ((100vw - 300px) / (1300 - 300)));
+    letter-spacing: calc(1px + (7 - 1) * ((100vw - 300px) / (1300 - 300)));
+    opacity: .8;
+    // margin-top: -10px;
+    // margin-bottom: 20px;
+}
+
+.header .header-content .btn {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+
+.header-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    opacity: .8;
+    color: #212529;
+}
+
+.section {
+    padding: 70px 10px;
+
+    .section-title {
+        color: $theme-color;
+    }
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+.show-menu-icon {
+    display: none;
+}
+
+.hide-menu-items {
+    display: flex;
+}
+
+@media (max-width: 576px) {
+    .show-menu-icon {
+        display: block;
+    }
+
+    .hide-menu-items {
+        display: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .header-content {
+        padding-left: calc(100% / 5) !important;
+    }
+}
+
+
+  @media (max-width: 767.98px) {
+    .portfolio-card {
+      margin-bottom: 30px;
+    }
+    .service-card {
+      margin-bottom: 30px;
+    }
+  }
+
+  
+.section .section-title {
+    font-size: calc(20px + (35 - 20) * ((100vw - 300px) / (1300 - 300)));
+    font-size: 30px;
+    font-weight: bold;
+    color: $theme-color;
+}
+
+.section .section-subtitle {
+    margin-bottom: 6px;
+    font-weight: 400;
+    opacity: .6;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.container {
+    color: #8b8b8b;
+}

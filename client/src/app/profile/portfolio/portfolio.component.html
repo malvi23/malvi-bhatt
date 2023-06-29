@@ -1,0 +1,43 @@
+<section class="section portfolio-section" id="portfolio">
+  <div class="container">
+    <div class="text-center">
+      <!-- <p class="section-subtitle">What I Did ?</p> -->
+      <h6 class="section-title mb-6">Portfolio <a href="https://manytools.org/hacker-tools/convert-images-to-ascii-art/"></a></h6>
+    </div>
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="2em">
+      <mat-grid-tile *ngFor="let project of projects">
+        <a class="portfolio-card" (click)="openDialog(project)">
+          <img
+            src="assets/imgs/portfolio/{{ project.images[0] }}.{{
+              project.imgExt
+            }}"
+            style="width: calc(100% - 4px); height: calc(100% - 4px)"
+            class="portfolio-card-img"
+            alt="..."
+          />
+          <span class="portfolio-card-overlay">
+            <span class="portfolio-card-caption">
+              <h4>{{ project.title }}</h4>
+              <div class="technology-container">
+                <ng-container
+                  *ngFor="let technology of project.technologies;let i=index;"
+                >
+                  <img
+                    src="assets/imgs/technology/{{ technology }}.png"
+                    style="height: 63px"
+                    alt=""
+                  />
+                  <mat-icon *ngIf="i != project.technologies.length - 1"
+                    >add</mat-icon
+                  >
+                </ng-container>
+              </div>
+              <p class="font-weight-normal">Domain: {{project.domain}}</p>
+              <p class="font-weight-normal">Click for more details</p>
+            </span>
+          </span>
+        </a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</section>

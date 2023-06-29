@@ -1,0 +1,34 @@
+@import '../profile.component.scss';
+@import '../../../styles.scss';
+
+.logo {
+    cursor: pointer;
+    font-weight: bold
+}
+
+.transparent-navbar {
+    .mat-toolbar.mat-primary {
+        background: transparent !important;
+    }
+}
+
+.white-navbar {
+    .mat-toolbar.mat-primary {
+        background: white !important;
+        color: #6c757d !important;
+    }
+
+    .logo {
+        color: $theme-color;
+    }
+}
+
+.mt-b8 {
+    margin-bottom: 0.8em;
+}
+.mt-b4 {
+    margin-bottom: 0.4em;
+}
+.mt-b10 {
+    margin-bottom: 1em;
+}
