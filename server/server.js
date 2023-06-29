@@ -27,6 +27,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Defining a route for the root URL ("/")
+app.get('/', (req, res) => {
+  res.send(`Server is running on port ${port}`);
+});
+
 // API routes
 app.use(`/api/${environment.API_VERSION}`, routes);
 
