@@ -10,12 +10,12 @@ export class ServicesComponent {
     {
       title:"Frontend Development",
       imgUrl: "assets/imgs/frontend.png",
-      description: "The Shiba Inu is the smallest of the six original and distinct spit breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+      description: "As a front-end developer, I specialize in creating engaging user interfaces and seamless user experiences. Using HTML, CSS, and JavaScript, I bring designs to life, ensuring they are visually appealing, responsive, and accessible across different devices and browsers."
     },
     {
       title:"Fullstack Development",
       imgUrl: "assets/imgs/fullstack.png",
-      description: "The Shiba Inu is the smallest of the six original and distinct spit breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+      description: "I am a full-stack developer capable of handling all aspects of web development. From designing user interfaces to developing server-side logic and managing databases, I create end-to-end solutions that encompass both the client and server sides of web applications."
     }
   ];
 }
