@@ -26,6 +26,10 @@ export class ContactComponent {
   resetForm(): void {
     this.sendMessageForm.reset();
     this.formDirective.resetForm();
+    this.resetBtn()
+  }
+
+  resetBtn(){
     this.submitBtnText = sendMsgEnabledText;
   }
 
@@ -37,6 +41,7 @@ export class ContactComponent {
       },
       error: (error:any) => {
         console.error(error);
+        this.resetBtn()
       },
     });
   }
