@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import environemnt from '../../environments/environment';
+import { environemnt } from '../../environments/environment';
 import { ContactFormReq, ContactFormRes } from './profile-interface';
 
 @Injectable({

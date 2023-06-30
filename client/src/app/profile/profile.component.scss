@@ -1,10 +1,8 @@
-@import '../../styles.scss';
+$theme-color: darkslateblue;
 
-
-
-    .mat-drawer-content {
-        height: 600px !important;
-    }
+.mat-drawer-content {
+    height: 600px !important;
+}
 
 .profile-sidenav {
     padding: 20px;
@@ -106,8 +104,6 @@
     font-size: calc(10px + (22 - 10) * ((100vw - 300px) / (1300 - 300)));
     letter-spacing: calc(1px + (7 - 1) * ((100vw - 300px) / (1300 - 300)));
     opacity: .8;
-    // margin-top: -10px;
-    // margin-bottom: 20px;
 }
 
 .header .header-content .btn {
@@ -126,7 +122,6 @@
 
 .section {
     padding: 70px 10px;
-
     .section-title {
         color: $theme-color;
     }
@@ -176,7 +171,6 @@
     .show-menu-icon {
         display: block;
     }
-
     .hide-menu-items {
         display: none;
     }
@@ -189,16 +183,16 @@
 }
 
 
-  @media (max-width: 767.98px) {
+@media (max-width: 767.98px) {
     .portfolio-card {
-      margin-bottom: 30px;
+        margin-bottom: 30px;
     }
     .service-card {
-      margin-bottom: 30px;
+        margin-bottom: 30px;
     }
-  }
+}
 
-  
+
 .section .section-title {
     font-size: calc(20px + (35 - 20) * ((100vw - 300px) / (1300 - 300)));
     font-size: 30px;

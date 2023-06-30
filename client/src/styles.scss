@@ -1,8 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@200;300&family=Rubik&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@200;300&family=Rubik:wght@400;800&display=swap');
 // @import './custom.scss';
 
@@ -16,11 +12,8 @@ body {
 p,
 h2,
 h1 {
-    // font-family: 'Poppins', sans-serif;
     font-family: 'Rubik', sans-serif;
 }
-
-$theme-color: darkslateblue;
 
 .material-icons {
     font-family: 'Material Icons' !important;
