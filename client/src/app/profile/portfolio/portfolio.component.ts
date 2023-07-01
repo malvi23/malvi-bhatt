@@ -5,6 +5,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 export interface Project {
   title: string;
   subTitle: string;
+  url?:string;
   description: string;
   images: string[];
   imgExt:string;
@@ -30,7 +31,7 @@ export class PortfolioComponent {
       title: 'EMS',
       subTitle: 'Environmental Monitoring System',
       description:
-        ' This application is an IOT project. It monitors environmental parameters like temperature, humidity, grain, pressure etc by collecting real-time data from sensors. User will be able to see real time sensor data in trend chart and can download report for sensor data.',
+        'This application is an IOT project. It monitors environmental parameters like temperature, humidity, grain, pressure etc by collecting real-time data from sensors. User will be able to see real time sensor data in trend chart and can download report for sensor data.',
       images: ['EMS'],
       imgExt: 'jpg',
       domain:'Environmental Monitoring System',
@@ -48,8 +49,8 @@ export class PortfolioComponent {
     },
     {
       title: 'Click-Eat',
-      subTitle: 'Click-Eat — Online food ordering and Book a table service',
-      url: 'https://test.pivotaltechnology.co.uk',
+      subTitle: 'Online food ordering and Book a table service',
+      url: 'https://www.click-eat.co.uk/',
       description:
         'The application developed is unique for Restaurant owners, Customers, Sales and Business owner. It gives restaurants full control of the management of their business. A customer can search for a favorite restaurant, usually filtered via type of cuisine and choose from available items, and choose delivery or pick-up and can book a table via seating chart (Designed by restaurant) or time slots or button directly.',
       images: [
@@ -66,7 +67,7 @@ export class PortfolioComponent {
     },
     {
       title: 'Motive8',
-      subTitle: 'Motive8 — Gym induction management system',
+      subTitle: 'Gym induction management system',
       url: 'https://bookings.m8group.co.uk/',
       description:
         'This application is use for managing gym inductions. There are three roles - Admin, Customer and Trainer. Customer can book an induction of their location and make payments and refund policy is also provided on cancellation. Admin can manage payments, customers and inductions.',
@@ -77,8 +78,7 @@ export class PortfolioComponent {
     },
     {
       title: 'Itsmycab',
-      subTitle: 'Itsmycab — Operator panel for car rental service',
-      url: 'Not available',
+      subTitle: 'Operator panel for car rental service',
       description:
         'This project is an Operator Panel developed for Car Rentals Services. Operator can manage their all details i.e.Bookings, Cabs, Rates, Drivers, Garages.Functionalities provided by this panel: Login, Forgot Password & Reset Password, Dashboard for General overview, Manage Inventory --> Manage Cab, Manage Driver, Manage Garage, Manage Rates, Manage Bookings, We have implemented advanced front-end validations in all pages using Parsley (Javascript form validation library).We have also implemented Booking Calendar (shows booking date- wise for current month and upcoming months), Statistics Graphs, Google maps APIs (customize maps, load city wise areas).We have used Angularjs Framework to make it more user friendly and responsive.For optimizing pages, we used APIs that is developed in Laravel.',
       images: ['itsmycab1'],

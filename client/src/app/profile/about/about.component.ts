@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProfileService } from '../profile.service';
 import { saveAs } from 'file-saver';
+import { environemnt } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -8,9 +8,8 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
-  constructor(private profileService: ProfileService) {}
   downloadResume() {
-    const filePath = '/assets/documents/Malvi Bhatt-UI Developer.pdf'; 
+    const filePath = environemnt.RESUME_FILEPATH; 
 
     fetch(filePath)
       .then((response) => response.blob())

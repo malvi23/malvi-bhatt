@@ -1,28 +1,41 @@
 <section class="section pt-0" id="about">
-  <div class="container ">
-    <mat-grid-list cols="5" rowHeight="100px">
-      <mat-grid-tile colspan="2" rowspan="4">
+  <div class="container text-center">
+    <div class="about">
+      <div class="about-img-holder" id="image-container">
         <img
           src="assets/imgs/malvi-photo.jpeg"
-          alt=""
-          style="height: inherit"
+          class="about-img"
+          alt="My photo"
         />
-      </mat-grid-tile>
-      <mat-grid-tile colspan="3" rowspan="4" class="about-caption-section" style="height: calc(355px) !important;">
-        <div class="about-caption">
-          <div class="text-center text-left">
-            <!-- <p class="section-subtitle">Who Am I ?</p> -->
-            <span class="section-title mb-3">About Me</span>
-          </div>
-          <p>
-            I'm Malvi, a web developer with 7 years of experience specializing in Angular and MEAN Stack development. I enjoy building user-friendly web applications and have worked on various projects, including ecommerce plateform, booking and reservation system, IoT project for monitoring environmental parameters, restaurant kiosk platform for food ordering etc. 
-            <br>My skills include Angular, TypeScript, JavaScript, Node.js, Ionic, RxJS, Angular Unit Testing (Jasmine, Karma), HTML, CSS and design frameworks like Bootstrap and Material. 
-            <br>I thrive in dynamic environments, collaborating with cross-functional teams to deliver high-quality solutions. I'm detail-oriented, aiming for code elegance and maintainability. I'm constantly learning and staying up-to-date with the latest industry trends. 
-            <br>If you have a project in mind or want to discuss collaborations, feel free to reach out. Thank you for visiting my portfolio website!
-          </p>
-          <button mat-raised-button class="btn-rounded mt-4" color="primary" (click)="downloadResume()">Download CV</button>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
+      </div>
+      <div class="about-caption">
+        <h2 class="section-title mb-3">About Me</h2>
+        <p>
+          I'm Malvi, a web developer with 7 years of experience specializing in
+          Angular and MEAN Stack development. I enjoy building user-friendly web
+          applications and have worked on various projects, including ecommerce
+          plateform, booking and reservation system, IoT project for monitoring
+          environmental parameters, restaurant kiosk platform for food ordering
+          etc.
+          <br />My skills include Angular, TypeScript, JavaScript, Node.js,
+          Ionic, RxJS, Angular Unit Testing (Jasmine, Karma), HTML, CSS and
+          design frameworks like Bootstrap and Material. <br />I thrive in
+          dynamic environments, collaborating with cross-functional teams to
+          deliver high-quality solutions. I'm detail-oriented, aiming for code
+          elegance and maintainability. I'm constantly learning and staying
+          up-to-date with the latest industry trends. <br />If you have a
+          project in mind or want to discuss collaborations, feel free to reach
+          out. Thank you for visiting my portfolio website!
+        </p>
+        <button
+          mat-raised-button
+          class="btn-rounded mt-4"
+          color="primary"
+          (click)="downloadResume()"
+        >
+          Download CV
+        </button>
+      </div>
+    </div>
   </div>
 </section>

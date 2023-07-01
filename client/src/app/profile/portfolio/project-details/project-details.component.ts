@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, ElementRef, Inject, Renderer2 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Project } from '../portfolio.component';
 import {
@@ -18,8 +18,23 @@ export class ProjectDetailsComponent {
   constructor(
     public dialogRef: MatDialogRef<ProjectDetailsComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: Project
+    public data: Project,
+    private elementRef: ElementRef,private renderer: Renderer2
   ) {}
+
+  ngOnInit() {
+    // console.log('data:', this.data);
+    this.renderer.selectRootElement('a').blur();
+  }
+
+  openExternalLink(event: Event, url:string) {
+    event.preventDefault(); // Prevent default behavior (scrolling)
+    window.open(url, '_blank'); // Open external website in a new tab or window
+  }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.querySelector('a').blur();
+  }
 
   currentSlide: number = 0;
 
@@ -32,8 +47,8 @@ export class ProjectDetailsComponent {
   onLeft() {
     if (this.currentSlide != 0) {
       this.currentSlide -= 1;
-    }else{
-      this.currentSlide = this.data.images.length - 1
+    } else {
+      this.currentSlide = this.data.images.length - 1;
     }
   }
 
@@ -43,10 +58,6 @@ export class ProjectDetailsComponent {
     } else {
       this.currentSlide += 1;
     }
-  }
-
-  ngOnInit() {
-    // console.log('data:', this.data);
   }
 
   onNoClick(): void {

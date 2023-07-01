@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{ data.title }}</h2>
+<h2 mat-dialog-title class="dialog-title">{{ data.title }}- <span style="color: #8b8b8b;">{{ data.subTitle }}</span></h2>
 <mat-dialog-content class="mat-typography mat-content">
   <!-- <mat-slider thumbLabel (input)="onSlideChange($event)"></mat-slider> -->
   <div class="photos-slider">
@@ -6,25 +6,29 @@
       aria-hidden="false"
       aria-label="Left slide photo"
       (click)="onLeft()"
-      fontIcon="chevron_left" *ngIf="data.images.length>1"
+      fontIcon="chevron_left"
+      *ngIf="data.images.length > 1"
     ></mat-icon>
-    <div class="image-container">
+    <div id="image-container">
       <img
         src="assets/imgs/portfolio/{{ data.images[currentSlide] }}.{{
           data.imgExt
         }}"
         alt=""
-        style="width: 500px"
       />
     </div>
     <mat-icon
       aria-hidden="false"
       aria-label="Right slide photo"
       (click)="onRight()"
-      fontIcon="chevron_right" *ngIf="data.images.length>1"
+      fontIcon="chevron_right"
+      *ngIf="data.images.length > 1"
     ></mat-icon>
   </div>
-  <h3>{{ data.subTitle }}</h3>
+  <!-- <h3>{{ data.subTitle }}</h3> -->
+  <!-- <p>{{ data.url ? data.url : "" }}</p> -->
+  <p>Visit the website: <span *ngIf="data.url" (click)="openExternalLink($event, data.url)" class="website-link">{{ data.url ? data.url : "" }}</span></p>
+  <!-- <a href="{{data.url}}" *ngIf="data.url" [autofocus]="false">{{ data.url ? data.url : "" }}</a> -->
   <p>{{ data.description }}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

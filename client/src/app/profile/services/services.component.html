@@ -4,8 +4,34 @@
       <!-- <p class="section-subtitle">What I Do ?</p> -->
       <h6 class="section-title mb-6">Services</h6>
     </div>
-    <div style="display: flex;justify-content: center;">
-      <mat-card class="service-card" *ngFor="let service of services">
+    <div class="row">
+      <div
+        class="col-12 col-lg-6 col-md-6 col-sm-12 service-card-container"
+        *ngFor="let service of services"
+      >
+        <mat-card class="service-card">
+          <img
+            mat-card-image
+            [src]="service.imgUrl"
+            alt="Photo of a Shiba Inu"
+            style="width: 135px"
+          />
+          <mat-card-header>
+            <mat-card-title class="card-title">{{
+              service.title
+            }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p style="text-align: center">
+              {{ service.description }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: center" *ngIf="false">
+      <mat-card class="col-sm-12 service-card" *ngFor="let service of services">
         <img
           mat-card-image
           [src]="service.imgUrl"
@@ -13,11 +39,13 @@
           style="width: 135px"
         />
         <mat-card-header>
-          <mat-card-title class="card-title">{{service.title}}</mat-card-title>
+          <mat-card-title class="card-title">{{
+            service.title
+          }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p style="text-align: center;">
-            {{service.description}}
+          <p style="text-align: center">
+            {{ service.description }}
           </p>
         </mat-card-content>
       </mat-card>

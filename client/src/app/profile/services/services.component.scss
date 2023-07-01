@@ -1,5 +1,11 @@
 @import '../profile.component.scss';
 
+.service-card-container {
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+}
+
 .service-card:hover .body .subtitle {
   bottom: 7px;
   opacity: 1;

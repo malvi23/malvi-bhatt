@@ -1,10 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  Validators,
+} from '@angular/forms';
 import { ProfileService } from '../profile.service';
 import { ContactFormRes } from '../profile-interface';
+import { Subscription } from 'rxjs';
 
 const sendMsgEnabledText = 'Send Message';
-const ssendMsgDisabledText= 'Sending....';
+const ssendMsgDisabledText = 'Sending....';
 
 @Component({
   selector: 'app-contact',
@@ -19,30 +25,43 @@ export class ContactComponent {
   });
   @ViewChild(FormGroupDirective)
   formDirective!: FormGroupDirective;
-  submitBtnText:string=sendMsgEnabledText;
+  submitBtnText: string = sendMsgEnabledText;
+  allSubscription: any[] = [];
 
   constructor(private profileService: ProfileService) {}
+
+  ngOnInit() {
+    this.allSubscription = [];
+  }
 
   resetForm(): void {
     this.sendMessageForm.reset();
     this.formDirective.resetForm();
-    this.resetBtn()
+    this.resetBtn();
   }
 
-  resetBtn(){
+  resetBtn() {
     this.submitBtnText = sendMsgEnabledText;
   }
 
   sendMail() {
     this.submitBtnText = ssendMsgDisabledText;
-    this.profileService.sendEmail(this.sendMessageForm.value).subscribe({
-      next: (response: ContactFormRes) => {
-        this.resetForm();
-      },
-      error: (error:any) => {
-        console.error(error);
-        this.resetBtn()
-      },
-    });
+    this.allSubscription.push(
+      this.profileService.sendEmail(this.sendMessageForm.value).subscribe({
+        next: (response: ContactFormRes) => {
+          this.resetForm();
+        },
+        error: (error: any) => {
+          console.error(error);
+          this.resetBtn();
+        },
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.allSubscription.forEach((subscription:Subscription)=>{
+      subscription.unsubscribe();
+    })
   }
 }
