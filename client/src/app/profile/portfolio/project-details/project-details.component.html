@@ -27,7 +27,7 @@
   </div>
   <!-- <h3>{{ data.subTitle }}</h3> -->
   <!-- <p>{{ data.url ? data.url : "" }}</p> -->
-  <p>Visit the website: <span *ngIf="data.url" (click)="openExternalLink($event, data.url)" class="website-link">{{ data.url ? data.url : "" }}</span></p>
+  <p *ngIf="data.url">Visit the website: <span (click)="openExternalLink($event, data.url)" class="website-link">{{ data.url ? data.url : "" }}</span></p>
   <!-- <a href="{{data.url}}" *ngIf="data.url" [autofocus]="false">{{ data.url ? data.url : "" }}</a> -->
   <p>{{ data.description }}</p>
 </mat-dialog-content>

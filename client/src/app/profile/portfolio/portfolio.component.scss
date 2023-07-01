@@ -15,35 +15,7 @@
   width: 100%;
 }
 
-.portfolio-card .portfolio-card-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  background-image: -webkit-linear-gradient(bottom, #e1dfed 0%, rgba(225, 223, 237, 0.7) 99%, rgba(225, 223, 237, 0.8) 100%);
-  // background-image: linear-gradient(to top, #e1dfed 0%, rgba(225, 223, 237, 0.7) 99%, rgba(225, 223, 237, 0.8) 100%);
-  background-image: linear-gradient(to top, #eae9ef 0%, rgb(229 228 231 / 70%) 99%, rgb(232 232 232 / 80%) 100%);
-  -webkit-transition: all, 0.3s;
-  transition: all, 0.3s;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .portfolio-card .portfolio-card-overlay {
-    -webkit-transition: none;
-    transition: none;
-  }
-}
-
-.portfolio-card .portfolio-card-overlay .portfolio-card-caption {
+.portfolio-card .portfolio-card-caption {
   display: block;
   position: absolute;
   top: 50%;
@@ -54,14 +26,6 @@
   width: 100%;
 }
 
-.portfolio-card:hover .portfolio-card-overlay {
-  opacity: 1;
-  visibility: visible;
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-}
-
 .technology-container {
   display: flex;
   justify-content: center;
@@ -69,10 +33,40 @@
   margin-bottom: 20px
 }
 
-.mat-grid-tile {
+.portfolio-card-box {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 .portfolio-card-box {
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  position: relative;
+  display: inline-block;
+}
+
+.portfolio-card-box:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  // background-color: rgba(255, 255, 255, 0.8);
+  background-image: linear-gradient(to top, #eae9ef 0%, rgb(229 228 231 / 70%) 99%, rgb(232 232 232 / 80%) 100%);
+  transition: opacity 0.3s;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay-content h3 {
+  color: #000;
 }

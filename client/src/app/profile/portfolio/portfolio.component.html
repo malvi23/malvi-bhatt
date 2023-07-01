@@ -13,29 +13,30 @@
     <div class="container" >
       <div class="row g-4">
         <div
-          class=" col-sm-6 col-lg-4 col-md-4"
+          class=" col-sm-6 col-lg-4 col-md-4 card-box"
           *ngFor="let project of projects"
         >
-          <div
-            class="p-3 portfolio-card-box bg-light"
-            style="
-              width: 100%;
-              height: 100%;
-              align-items: center;
-              display: flex;
-            "
-          >
-            <a class="portfolio-card" (click)="openDialog(project)">
-              <img
-                src="assets/imgs/portfolio/{{ project.images[0] }}.{{
-                  project.imgExt
-                }}"
-                style="width: calc(100% - 4px); height: calc(100% - 4px)"
-                class="portfolio-card-img"
-                alt="..."
-              />
-              <span class="portfolio-card-overlay">
-                <span class="portfolio-card-caption">
+            <div
+              class="p-3 portfolio-card-box bg-light"
+              style="
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                display: flex;
+              "
+            >
+              <a class="portfolio-card" (click)="openDialog(project)">
+                <img
+                  src="assets/imgs/portfolio/{{ project.images[0] }}.{{
+                    project.imgExt
+                  }}"
+                  style="width: calc(100% - 4px); height: calc(100% - 4px)"
+                  class="portfolio-card-img"
+                  alt="..."
+                />
+              </a>
+              <div class="overlay" (click)="openDialog(project)">
+                <div class="overlay-content">
                   <h4 style="font-weight: bold;">{{ project.title }}</h4>
                   <div class="technology-container">
                     <ng-container
@@ -54,12 +55,12 @@
                       >
                     </ng-container>
                   </div>
-                  <p class="font-weight-normal">Domain: {{ project.domain }}</p>
+                  <!-- <p class="font-weight-normal">Domain: {{ project.domain }}</p> -->
                   <p class="font-weight-normal">Click for more details</p>
-                </span>
-              </span>
-            </a>
-          </div>
+                </div>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>
