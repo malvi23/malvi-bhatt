@@ -39,6 +39,19 @@ export class ProfileComponent {
       id: 'contact',
     },
   ];
+
+  socialLinks:any[] = [
+    {
+      name:'linkedin',
+      icon: 'assets/imgs/icons/linkedin.png',
+      link:'https://www.linkedin.com/in/malvi-bhatt/'
+    },
+    {
+      name:'github',
+      icon: 'assets/imgs/icons/github.png',
+      link:'https://github.com/malvi23'
+    }
+  ]
   @ViewChild('drawer') drawer!: MatSidenav;
   @ViewChild('home') home!: ElementRef;
   @ViewChild('about') about!: ElementRef;
@@ -76,5 +89,10 @@ export class ProfileComponent {
     //   behavior: 'smooth',
     // });
     this.closeSideNav();
+  }
+
+  openSocialLink(event: Event, url: string) {
+    event.preventDefault(); // Prevent default behavior (scrolling)
+    window.open(url, '_blank');
   }
 }

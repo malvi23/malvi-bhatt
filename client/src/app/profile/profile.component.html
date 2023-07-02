@@ -12,7 +12,11 @@
     </mat-drawer>
 
     <div #home>
-      <app-home [drawer]="drawer" [menuList]="menuList" (scrollToSectionEvent)="scrollToDiv($event)"></app-home>
+      <app-home
+        [drawer]="drawer"
+        [menuList]="menuList"
+        (scrollToSectionEvent)="scrollToDiv($event)"
+      ></app-home>
     </div>
 
     <div #about>
@@ -32,5 +36,25 @@
     </div>
   </mat-drawer-container>
 
-  <div class="footer"></div>
+  <footer class="footer mt-auto bg-light" style="     padding: 0 0 4em 0;">
+    <hr class="footer-divider" />
+    <div class="container">
+      <span
+        class="text-muted"
+        style="display: flex; justify-content: space-between"
+      >
+        <div>Thank you for visiting !</div>
+        <!-- <div>Copyright 2023 &copy; Malvi Bhatt</div> -->
+        <div class="social-links">
+          <img
+            *ngFor="let account of socialLinks"
+            class="social-link"
+            [src]="account.icon"
+            [alt]="account.name"
+            (click)="openSocialLink($event, account.link)"
+          />
+        </div>
+      </span>
+    </div>
+  </footer>
 </div>
