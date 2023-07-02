@@ -52,3 +52,48 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.photo-container {
+    width: 100%;
+    max-width: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.photo-slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: auto;
+}
+
+// /* CSS rules for mobile devices */
+// @media (max-width: 767px) {
+//     #image-container {
+//         display: none;
+//     }
+// }
+
+// /* CSS rules for tablets */
+// @media (min-width: 768px) and (max-width: 1023px) {
+//     #image-container {
+//         display: none;
+//     }
+// }
+
+// /* CSS rules for laptops */
+// @media (min-width: 1024px) and (max-width: 1439px) {
+//     .photo-container {
+//         display: none;
+//     }
+// }
+
+// /* CSS rules for desktops */
+// @media (min-width: 1440px) {
+//     .photo-container {
+//         display: none;
+//     }
+// }

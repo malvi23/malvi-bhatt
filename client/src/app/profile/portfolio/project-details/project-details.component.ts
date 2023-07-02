@@ -1,5 +1,15 @@
-import { Component, ElementRef, Inject, Renderer2 } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { Project } from '../portfolio.component';
 import {
   trigger,
@@ -8,41 +18,62 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig } from '@angular/platform-browser';
+
+export class CustomHammerConfig extends HammerGestureConfig {
+  override overrides = {
+    swipe: { direction: Hammer.DIRECTION_HORIZONTAL },
+  };
+}
 
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
   styleUrls: ['./project-details.component.scss'],
+  providers: [{ provide: HammerGestureConfig, useClass: CustomHammerConfig }],
 })
-export class ProjectDetailsComponent {
+export class ProjectDetailsComponent implements OnInit, AfterViewInit {
+  @ViewChild('slider') sliderRef!: ElementRef;
+  slider!: HammerManager;
   constructor(
     public dialogRef: MatDialogRef<ProjectDetailsComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: Project,
-    private elementRef: ElementRef,private renderer: Renderer2
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    private scrollStrategyOptions: ScrollStrategyOptions
   ) {}
+  ngOnInit() {}
 
-  ngOnInit() {
-    // console.log('data:', this.data);
-    this.renderer.selectRootElement('a').blur();
+  ngAfterViewInit() {
+    this.slider = new Hammer.Manager(this.sliderRef.nativeElement);
+    this.slider.add(
+      new Hammer.Swipe({ direction: Hammer.DIRECTION_HORIZONTAL })
+    );
+    this.slider.on('swipeleft', () => this.onSwipeRight1(1));
+    this.slider.on('swiperight', () => this.onSwipeLeft1(1));
+  }
+  onSwipeLeft1(index: number) {
+    this.onLeft();
   }
 
-  openExternalLink(event: Event, url:string) {
+  onSwipeRight1(index: number) {
+    this.onRight();
+  }
+
+  updateSliderPosition() {
+    const slideWidth = this.sliderRef.nativeElement.offsetWidth;
+    const translateX = -slideWidth * this.currentSlide;
+    this.sliderRef.nativeElement.style.transform = `translateX(${translateX}px)`;
+  }
+
+  openExternalLink(event: Event, url: string) {
     event.preventDefault(); // Prevent default behavior (scrolling)
     window.open(url, '_blank'); // Open external website in a new tab or window
   }
 
-  ngAfterViewInit() {
-    this.elementRef.nativeElement.querySelector('a').blur();
-  }
-
   currentSlide: number = 0;
-
-  onSlideChange(event: Event) {
-    console.log('event:', event);
-
-    // this.currentSlide = event.value;
-  }
 
   onLeft() {
     if (this.currentSlide != 0) {
@@ -50,6 +81,7 @@ export class ProjectDetailsComponent {
     } else {
       this.currentSlide = this.data.images.length - 1;
     }
+    this.updateSliderPosition();
   }
 
   onRight() {
@@ -58,6 +90,7 @@ export class ProjectDetailsComponent {
     } else {
       this.currentSlide += 1;
     }
+    this.updateSliderPosition();
   }
 
   onNoClick(): void {

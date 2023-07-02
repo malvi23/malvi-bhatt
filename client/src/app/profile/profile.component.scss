@@ -153,11 +153,22 @@ $theme-color: darkslateblue;
     }
 }
 
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
+
+/* CSS rules for desktops */
+@media (min-width: 1440px) {
+    .header .header-content {
+        max-width: 140vh;
     }
 }
+
+// @media (min-width: 1200px) {
+//     .header .header-content {
+//         max-width: 1140px;
+//     }
+//     // .container {
+//     //     max-width: 1140px;
+//     // }
+// }
 
 .show-menu-icon {
     display: none;

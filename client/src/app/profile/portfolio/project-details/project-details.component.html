@@ -1,37 +1,54 @@
-<h2 mat-dialog-title class="dialog-title">{{ data.title }}- <span style="color: #8b8b8b;">{{ data.subTitle }}</span></h2>
-<mat-dialog-content class="mat-typography mat-content">
-  <!-- <mat-slider thumbLabel (input)="onSlideChange($event)"></mat-slider> -->
-  <div class="photos-slider">
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Left slide photo"
-      (click)="onLeft()"
-      fontIcon="chevron_left"
-      *ngIf="data.images.length > 1"
-    ></mat-icon>
-    <div id="image-container">
-      <img
-        src="assets/imgs/portfolio/{{ data.images[currentSlide] }}.{{
-          data.imgExt
-        }}"
-        alt=""
-      />
+  <h2 mat-dialog-title class="dialog-title">
+    {{ data.title }}- <span style="color: #8b8b8b">{{ data.subTitle }}</span>
+  </h2>
+  <mat-dialog-content class="mat-typography mat-content">
+    <!-- <mat-slider thumbLabel (input)="onSlideChange($event)"></mat-slider> -->
+    <div class="photos-slider">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Left slide photo"
+          (click)="onLeft()"
+          fontIcon="chevron_left"
+          *ngIf="data.images.length > 1"
+        ></mat-icon>
+        <div class="photo-container">
+          <div class="photo-slider" #slider>
+            <img *ngFor="let image of data.images" src="assets/imgs/portfolio/{{ image }}.{{ data.imgExt }}" alt="Image" class="slide">
+          </div>
+        </div>
+        <div id="image-container" *ngIf="false">
+          <img
+            src="assets/imgs/portfolio/{{ data.images[currentSlide] }}.{{
+              data.imgExt
+            }}"
+            alt=""
+          />
+          <!-- <img
+            src="assets/imgs/portfolio/{{ image }}.{{ data.imgExt }}"
+            alt=""
+            *ngFor="let image of data.images; let i = index" (swipeleft)="onSwipeLeft1(i)" (swiperight)="onSwipeRight1(i)"
+          /> -->
+        </div>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Right slide photo"
+          (click)="onRight()"
+          fontIcon="chevron_right"
+          *ngIf="data.images.length > 1"
+        ></mat-icon>
     </div>
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Right slide photo"
-      (click)="onRight()"
-      fontIcon="chevron_right"
-      *ngIf="data.images.length > 1"
-    ></mat-icon>
-  </div>
-  <!-- <h3>{{ data.subTitle }}</h3> -->
-  <!-- <p>{{ data.url ? data.url : "" }}</p> -->
-  <p *ngIf="data.url">Visit the website: <span (click)="openExternalLink($event, data.url)" class="website-link">{{ data.url ? data.url : "" }}</span></p>
-  <!-- <a href="{{data.url}}" *ngIf="data.url" [autofocus]="false">{{ data.url ? data.url : "" }}</a> -->
-  <p>{{ data.description }}</p>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
-</mat-dialog-actions>
+    <!-- <h3>{{ data.subTitle }}</h3> -->
+    <!-- <p>{{ data.url ? data.url : "" }}</p> -->
+    <p *ngIf="data.url">
+      Visit the website:
+      <span (click)="openExternalLink($event, data.url)" class="website-link">{{
+        data.url ? data.url : ""
+      }}</span>
+    </p>
+    <!-- <a href="{{data.url}}" *ngIf="data.url" [autofocus]="false">{{ data.url ? data.url : "" }}</a> -->
+    <p>{{ data.description }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+  </mat-dialog-actions>

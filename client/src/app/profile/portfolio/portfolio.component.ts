@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 export interface Project {
   title: string;
@@ -88,12 +89,14 @@ export class PortfolioComponent {
     },
   ];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+    private scrollStrategyOptions: ScrollStrategyOptions) {}
 
   openDialog(project: Project) {
-    const dialogRef = this.dialog.open(ProjectDetailsComponent, {
-      data: project,
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data =project
+    // dialogConfig.scrollStrategy = this.scrollStrategyOptions.noop(); // Disable scrolling
+    const dialogRef = this.dialog.open(ProjectDetailsComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
