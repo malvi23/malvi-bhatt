@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatInputModule,
     MatDialogModule,
     MatSliderModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -37,6 +39,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatInputModule,
     MatDialogModule,
     MatSliderModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

@@ -2,9 +2,31 @@ const apiResponse = require("../middleware/apiResponseMiddleware");
 const nodemailer = require("nodemailer");
 const { environment } = require("../env");
 
+function containsAllKeys(obj, requiredKeys) {
+  for (const key of requiredKeys) {
+    if (!(key in obj)) {
+      return { result: false, message: key + " is required." };
+    }
+  }
+
+  return { result: true };
+
+  // return requiredKeys.every((key) => obj.hasOwnProperty(key));
+}
 // API endpoint to send an email
 exports.sendMail = (req, res) => {
   try {
+    const requiredValidationResult = containsAllKeys(req.body, [
+      "name",
+      "email",
+      "message",
+    ]);
+    if (!requiredValidationResult.result) {
+      return apiResponse.badRequest(res, {
+        message: requiredValidationResult.message,
+      });
+    }
+
     const { name, email, message } = req.body;
 
     // Configuring Nodemailer transporter

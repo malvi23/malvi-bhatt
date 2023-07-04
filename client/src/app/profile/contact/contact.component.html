@@ -14,14 +14,37 @@
           <td>
             <mat-form-field class="contact-full-width">
               <mat-label>Your Name</mat-label>
-              <input matInput id="name" formControlName="name" required />
+              <input
+                matInput
+                id="name"
+                formControlName="name"
+                required
+                (blur)="onFieldTouched('name')"
+              />
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="contact-full-width">
               <mat-label>Email</mat-label>
-              <input matInput id="email" formControlName="email" required />
+              <input
+                matInput
+                id="email"
+                formControlName="email"
+                required
+                (blur)="onFieldTouched('email')"
+              />
             </mat-form-field>
+            <mat-error
+              *ngIf="
+                sendMessageForm.controls['email'].hasError('email') &&
+                !sendMessageForm.controls['email'].hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="submitted && sendMessageForm.controls['email'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
           </td>
         </tr>
       </table>
@@ -29,7 +52,14 @@
       <p>
         <mat-form-field class="contact-full-width">
           <mat-label>Message</mat-label>
-          <textarea matInput placeholder="Ex. 100 Main St" id="message" formControlName="message" required></textarea>
+          <textarea
+            matInput
+            placeholder="Ex. 100 Main St"
+            id="message"
+            formControlName="message"
+            required
+            (blur)="onFieldTouched('message')"
+          ></textarea>
         </mat-form-field>
       </p>
       <div class="contact-btn">
@@ -37,9 +67,10 @@
           type="submit"
           mat-raised-button
           class="btn-rounded mt-4"
-          color="primary" [disabled]="sendMessageForm.invalid || submitBtnText == 'Sending...'"
+          color="primary"
+          [disabled]="sendMessageForm.invalid || submitBtnText == sendMsgDisabledText"
         >
-          {{submitBtnText}}
+          {{ submitBtnText }}
         </button>
       </div>
     </form>
